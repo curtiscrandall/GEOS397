@@ -11,7 +11,7 @@ function [minVal, minIdx ] = myMinimum( xArray )
 % Written by: Dylan Mikesell
 % Last modified: 23 August 2015
 
-[nx, ny] = size( xArray ); % get the dimensions
+[nx, ny] = size( xArray ); % get the dimensions (rows,columns)
 
 % Some error checking of the inputs is important!!
 if (nx > 1) && (ny > 1)

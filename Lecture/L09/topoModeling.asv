@@ -1,0 +1,9 @@
+function zChange = topoModeling(z0, kappa, dt, dx, tMax)
+
+nNode = numel( z );
+xArray = ( 0 : nNode - 1 ) .* dx;
+for it = t0 + dt : dt : tMax;
+    for ix = 2 : nNode -1;
+        z (ix, it) = dt * kappa * ((z (ix + 1 , it - 1 ) - 2 * (z(ix , it - 1 )) + z( ix - 1 , it-1))/(dx^2)) + z( ix , it - 1);
+    end 
+end

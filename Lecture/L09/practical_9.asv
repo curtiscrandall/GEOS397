@@ -43,8 +43,6 @@ x = -100:100;
 help myMinimum
 
 %% Class exercise
-clear all
-clc
 
 % Take the topography vector from HW3
 z = [0 0 0 0 0 1 2 3 4 5 6 7 8 9 10 9 8 7 6 5 4 3 2 1 0 0 0 0 0]; % [m]
@@ -53,14 +51,9 @@ dx = 1;
 kappa = 2e-3;
 tMax = 1000;
 zChange = topoModeling(z, kappa, dt, dx, tMax);
-plot(zChange(:,tMax),'*');
-
-%%
+plot(zChange(:,tMax),b);
 % write a function that computes the average of this vector.
 % Call it average.m and use it from this script.
-x = [0 0 0 0 0 1 2 3 4 5 6 7 8 9 10 9 8 7 6 5 4 3 2 1 0 0 0 0 0];
-
-mean = average(x);
 
 % 15 minutes
 
