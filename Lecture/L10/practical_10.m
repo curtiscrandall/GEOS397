@@ -2,6 +2,8 @@ clear all
 close all
 clc
 
+% Remember the definition of a function:
+
 % Scripts contain sequences of commands that are applied to variables in
 % the workspace. MATLAB functions, however, allow inputs and outputs to be
 % defined. They do not automatically import variables from the workspace.
@@ -10,66 +12,7 @@ clc
 % MATLAB, functions are defined in separate files. The name of the file and
 % of the function should be the same.  
 
-%% Function syntax
-
-% function [out1,out2, ..., outN] = myfun(in1,in2,in3, ..., inN)
-
-x1 = 1; x2 = 0; x3 = -2; x4 = 6; x5 = 1.5;
-
-minVal = mySimpleMinimum(x1, x2, x3, x4, x5)
-
-%% What's in a function
-%
-% * the first line of a function starts with the keyword *function*
-% * and it gives the name of the function and order of arguments
-% * the comment lines that come right after the function statement provide
-% the help text
-% * hese lines are printed when you type ? help function - in the Command Window
-
-help mySimpleMinimum
-
-%% An example function
-
-% In order to improve the readability and reduce writing repetitive lines
-% of code we can write functions to do simple tasks. The built-in MATLAB
-% _plot()_ command is an example of a function. I have written a function
-% that we can then call to do a task. Open the file myMinimum.m
 x = -100:100;
-
-[minVal, minIdx ] = myMinimum( x )
-
-%%
-% Let's look at the help for this function. Everything in comments
-% immediately following the "function" declaration is part of the preamble
-% of this functiona and will show up in the "help myMinimum" command.
-help myMinimum
-
-%% Class exercise
-clear all
-clc
-
-% Take the topography vector from HW3
-z = [0 0 0 0 0 1 2 3 4 5 6 7 8 9 10 9 8 7 6 5 4 3 2 1 0 0 0 0 0]; % [m]
-dt = 1;
-dx = 1;
-kappa = 2e-3;
-tMax = 1000;
-zChange = topoModeling(z, kappa, dt, dx, tMax);
-plot(zChange(:,tMax),'*');
-
-<<<<<<< HEAD
-%%
-% write a function that computes the average of this vector.
-% Call it average.m and use it from this script.
-x = [0 0 0 0 0 1 2 3 4 5 6 7 8 9 10 9 8 7 6 5 4 3 2 1 0 0 0 0 0];
-
-mean = average(x);
-=======
-% write a function that computes the change in elevation given a maximum
-% time
->>>>>>> refs/remotes/dylanmikesell/master
-
-% 15 minutes
 
 %% Some useful MATLAB commands to learn about the input variables
 %
@@ -92,7 +35,7 @@ nargin( fx ) % get the number of input to mySimpleMinimum_v2.m
 % nargout returns the number of output arguments specified in the call to
 % the currently executing function 
 
-minVal = myMinimum_v2( x )
+[minVal,minIdx] = myMinimum_v2( x )
 
 %% What if you want a variable number of inputs or outputs?
 
@@ -125,8 +68,8 @@ matrixInput = rand( 4, 5, 2 );
 
 % let's put a break point somewhere in one of our functions and see what
 % happens
-
-[minVal, minIdx ] = myMinimum( x )
+x = -100:100;
+[minVal, minIdx ] = myMinimum( x );
 
 
 %% Those were basic functions; there are other kinds of functions though
@@ -234,6 +177,12 @@ TOTAL = 10; % set the value
 n = [34, 45, 25, 45, 33, 19, 40, 34, 38, 42];
 
 av = myAverage( n )
+
+%% Class exercise
+
+% Modify your function from last class to accept variable input with
+% varargin.
+% Use strings to denote each input followed by its numeric value.
 
 %% Notes
 %
